@@ -1,0 +1,21 @@
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  padding: 0 30px;
+  background-color: #1F2232;
+  color: white;
+}
+
+.navBar li {
+  list-style: none;
+  display: inline-block;
+  margin-left: 40px;
+  font-size: 22px;
+}
+
+.navBar a {
+  text-decoration: none;
+  color: #ffffff;
+}
