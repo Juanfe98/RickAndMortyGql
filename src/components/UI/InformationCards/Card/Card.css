@@ -1,0 +1,7 @@
+.characterCard {
+  background-color: #ffffff;
+  border-radius: 20px;
+  width: 350px;
+  min-width: 200px;
+  height: 350px
+}
