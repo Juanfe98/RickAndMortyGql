@@ -1,11 +1,14 @@
 import './Card.css'
 
-function Card(){
+function Card(props){
+  const {title, image} = props;
+
   return (
     <div className="characterCard">
-      <h1>Nombre del personaje</h1>
-      <p>Mundo del personaje</p>
-      <p>Informacion relevante del personaje</p>
+      <img src={image} alt='Character avatar'/>
+      <div className="contentBox">
+        <h2>{title}</h2>
+      </div>
     </div>
   )
 }
