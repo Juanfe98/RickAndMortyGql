@@ -26,7 +26,7 @@ function Characters() {
   return (
     <>
       <section className="charactersSection">
-          <For of={characters} body={(character, index) => <Card title={character.name} image={character.image} key={index} />} />
+          <For of={characters} body={(character, index) => <Card characterInfo={character} key={index} />} />
       </section>
     </>
   )

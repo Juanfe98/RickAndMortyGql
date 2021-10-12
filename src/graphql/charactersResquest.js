@@ -13,8 +13,10 @@ query($page: Int!) {
     results {
       name
       image
-      status
       species
+      status
+      type
+      gender
     }
   }
   location(id: 1) {
