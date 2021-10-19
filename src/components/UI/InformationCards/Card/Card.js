@@ -4,6 +4,7 @@ import { If } from "../../../shared/If";
 
 function Card({ characterInfo, cardType }) {
   const { name, image } = characterInfo;
+  console.log("🚀 ~ file: Card.js ~ line 7 ~ Card ~ image", image)
 
   return (
     <div className="characterCard">
