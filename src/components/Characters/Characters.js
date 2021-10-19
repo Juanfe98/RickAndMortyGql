@@ -4,14 +4,13 @@ import { CHARACTERS_QUERY } from "../../graphql/charactersResquest";
 import Card from "../UI/InformationCards/Card/Card";
 import Loader from "../UI/Loader/Loader";
 import { For } from "../shared/For";
-import "../shared/globalStyles.css"
-import "./Characters.css";
+import "../shared/globalStyles.css";
 
 function Characters() {
   const [characters, setCharacters] = useState([]);
 
   const page = 5;
-  const { data, loading, error, fetchMore } = useQuery(CHARACTERS_QUERY, {
+  const { data, loading, error } = useQuery(CHARACTERS_QUERY, {
     variables: { page: page },
   });
 
