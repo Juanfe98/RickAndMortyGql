@@ -4,14 +4,13 @@ import { CHARACTERS_QUERY } from "../../graphql/charactersResquest";
 import Card from "../UI/InformationCards/Card/Card";
 import Loader from "../UI/Loader/Loader";
 import { For } from "../shared/For";
-import "../shared/globalStyles.css";
+import { Pagination } from "../Pagination.js/Pagination";
 
 function Characters() {
   const [characters, setCharacters] = useState([]);
 
-  const page = 5;
-  const { data, loading, error } = useQuery(CHARACTERS_QUERY, {
-    variables: { page: page },
+  const { data, loading, error, fetchMore } = useQuery(CHARACTERS_QUERY, {
+    variables: { page: 1 },
   });
 
   useEffect(() => {
@@ -28,10 +27,16 @@ function Characters() {
         <For
           of={characters}
           body={(character, index) => (
-            <Card characterInfo={character} key={index} cardType="character" />
+            <Card
+              characterInfo={character}
+              key={index}
+              cardType="character"
+              showContent
+            />
           )}
         />
       </section>
+      <Pagination fetchMore={fetchMore} next={data.characters.info.next} option="characters"/>
     </>
   );
 }
