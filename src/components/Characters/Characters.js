@@ -4,6 +4,7 @@ import { CHARACTERS_QUERY } from "../../graphql/charactersResquest";
 import Card from "../UI/InformationCards/Card/Card";
 import Loader from "../UI/Loader/Loader";
 import { For } from "../shared/For";
+import "../shared/globalStyles.css"
 import "./Characters.css";
 
 function Characters() {
@@ -24,7 +25,7 @@ function Characters() {
   if (error) console.log(error, "error get info");
   return (
     <>
-      <section className="charactersSection">
+      <section className="cardsContainer">
         <For
           of={characters}
           body={(character, index) => (
