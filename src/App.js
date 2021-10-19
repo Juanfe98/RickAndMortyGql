@@ -1,6 +1,7 @@
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import { Route, Switch } from "react-router-dom";
+import "./components/shared/globalStyles.css";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 import Characters from "./components/Characters/Characters";
 import { Locations } from "./components/Locations/Locations";

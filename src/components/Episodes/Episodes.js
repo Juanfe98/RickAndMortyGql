@@ -4,7 +4,6 @@ import { EPISODES_QUERY } from "../../graphql/episodesRequest";
 import Loader from "../UI/Loader/Loader";
 import Card from "../UI/InformationCards/Card/Card";
 import { For } from "../shared/For";
-import "../shared/globalStyles.css";
 
 export const Episodes = () => {
   const [episodes, setEpisodes] = useState([]);

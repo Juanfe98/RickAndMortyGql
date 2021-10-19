@@ -12,3 +12,24 @@
     justify-content: center;
   }
 }
+
+.paginateContainer {
+  background-color: 'red';
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: 50px;
+}
+
+.paginateContainer button {
+  background-color: #48e0e8;
+  width: 130px;
+  padding: 10px;
+  border-radius: 4px 20px;
+}
+
+.paginateContainer span {
+  font-size: 30px;
+}

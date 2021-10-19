@@ -27,7 +27,11 @@
   opacity: 1;
 } 
 
-.characterCard:hover img {
+.showContent img {
+  transition: all .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.showContent:hover img {
   opacity: 0.25;
 }
 
@@ -35,7 +39,7 @@
 
 .contentBox {
   position: relative;
-  top: 80%;
+  top: 75%;
   font-family: 'Roboto Mono', monospace;
   text-align: center;
   

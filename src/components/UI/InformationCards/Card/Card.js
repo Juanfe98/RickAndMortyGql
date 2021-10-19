@@ -2,12 +2,11 @@ import "./Card.css";
 import { CharacterCardContent } from "./CharacterCardContent";
 import { If } from "../../../shared/If";
 
-function Card({ characterInfo, cardType }) {
+function Card({ characterInfo, cardType, showContent = false }) {
   const { name, image } = characterInfo;
-  console.log("🚀 ~ file: Card.js ~ line 7 ~ Card ~ image", image)
 
   return (
-    <div className="characterCard">
+    <div className={`characterCard ${showContent && "showContent"}`}>
       <img src={image} alt="Character avatar" />
       <div className="contentBox">
         <h2>{name}</h2>
