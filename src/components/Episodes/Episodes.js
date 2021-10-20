@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { EPISODES_QUERY } from "../../graphql/episodesRequest";
+import { Pagination } from "../Pagination/Pagination";
 import Loader from "../UI/Loader/Loader";
 import Card from "../UI/InformationCards/Card/Card";
 import { For } from "../shared/For";
@@ -9,7 +10,7 @@ export const Episodes = () => {
   const [episodes, setEpisodes] = useState([]);
 
   const page = 1;
-  const { data, loading, error } = useQuery(EPISODES_QUERY, {
+  const { data, loading, error, fetchMore } = useQuery(EPISODES_QUERY, {
     variables: { page: page },
   });
 
@@ -40,6 +41,7 @@ export const Episodes = () => {
           }}
         />
       </section>
+      <Pagination fetchMore={fetchMore} next={data.episodes.info.next} option="episodes"/>
     </>
   );
 };

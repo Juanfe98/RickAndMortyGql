@@ -4,12 +4,13 @@ import { LOCATIONS_QUERY } from "../../graphql/locationsRequest";
 import Loader from "../UI/Loader/Loader";
 import Card from "../UI/InformationCards/Card/Card";
 import { For } from "../shared/For";
+import { Pagination } from "../Pagination/Pagination";
 
 export const Locations = () => {
   const [locations, setLocations] = useState([]);
 
   const page = 1;
-  const { data, loading, error } = useQuery(LOCATIONS_QUERY, {
+  const { data, loading, error, fetchMore } = useQuery(LOCATIONS_QUERY, {
     variables: { page: page },
   });
 
@@ -47,6 +48,7 @@ export const Locations = () => {
           }}
         />
       </section>
+      <Pagination fetchMore={fetchMore} next={data.locations.info.next} option="locations"/>
     </>
   );
 };

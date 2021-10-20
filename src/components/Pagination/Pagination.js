@@ -2,6 +2,7 @@ export const Pagination = ({ fetchMore, next, option }) => {
   return (
     <section className="paginateContainer">
       <button
+        disabled={next ? false : true}
         onClick={() => {
           fetchMore({
             variables: { page: next },
@@ -15,7 +16,7 @@ export const Pagination = ({ fetchMore, next, option }) => {
           });
         }}
       >
-        Show More
+        {next ? "Show More" : "No more pages"}
       </button>
     </section>
   );

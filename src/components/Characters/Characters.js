@@ -4,7 +4,7 @@ import { CHARACTERS_QUERY } from "../../graphql/charactersResquest";
 import Card from "../UI/InformationCards/Card/Card";
 import Loader from "../UI/Loader/Loader";
 import { For } from "../shared/For";
-import { Pagination } from "../Pagination.js/Pagination";
+import { Pagination } from "../Pagination/Pagination";
 
 function Characters() {
   const [characters, setCharacters] = useState([]);
