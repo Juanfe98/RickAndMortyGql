@@ -24,7 +24,7 @@ export const Episodes = () => {
 
   const getRandomNumber = (max, min) => {
     return Math.floor(Math.random() * (max - min)) + min;
-  }
+  };
 
   return (
     <>
@@ -33,8 +33,10 @@ export const Episodes = () => {
           of={episodes}
           body={(episode, index) => {
             const episodeCharacters = episode.characters;
-            const image = episodeCharacters[getRandomNumber(episodeCharacters.length, 0)].image;
-            return <Card characterInfo={{...episode, image}} key={index} />
+            const image =
+              episodeCharacters[getRandomNumber(episodeCharacters.length, 0)]
+                .image;
+            return <Card characterInfo={{ ...episode, image }} key={index} />;
           }}
         />
       </section>

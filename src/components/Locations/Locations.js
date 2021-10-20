@@ -39,8 +39,9 @@ export const Locations = () => {
                 locationCharacters[
                   getRandomNumber(locationCharacters.length, 0)
                 ].image;
-            }else{
-              image = "https://rickandmortyapi.com/api/character/avatar/19.jpeg"
+            } else {
+              image =
+                "https://rickandmortyapi.com/api/character/avatar/19.jpeg";
             }
             return <Card characterInfo={{ ...location, image }} key={index} />;
           }}

@@ -36,7 +36,11 @@ function Characters() {
           )}
         />
       </section>
-      <Pagination fetchMore={fetchMore} next={data.characters.info.next} option="characters"/>
+      <Pagination
+        fetchMore={fetchMore}
+        next={data.characters.info.next}
+        option="characters"
+      />
     </>
   );
 }

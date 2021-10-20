@@ -1,5 +1,5 @@
-export const Pagination = ({fetchMore, next ,option}) => {
-  return(
+export const Pagination = ({ fetchMore, next, option }) => {
+  return (
     <section className="paginateContainer">
       <button
         onClick={() => {
