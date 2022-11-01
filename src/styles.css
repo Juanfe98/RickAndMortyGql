@@ -1,11 +1,7 @@
 *{
   box-sizing: border-box;
-}
-.card{
-  background-color: rgb(75, 72, 72);
-  border-radius: 10px;
-  margin: 10px;
-  flex-basis: 30%;
+  margin: 0;
+  padding: 0;
 }
 
 .box{
@@ -14,16 +10,28 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  padding: 10px;
 
 }
 
+.card{
+  background-color: rgb(75, 72, 72);
+  border-radius: 10px;
+  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+
 .image {
- flex-direction: column;
+ width: 210px;
+ flex-grow: 1;
 }
 
 .charImg {
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
   height: 100%;
   width: 100%;
   display: block;
@@ -32,10 +40,30 @@
 .details {
  flex-direction: column;
  color: white;
- padding: 30px;
+ padding-left: 20px;
+ padding-right: 20px;
+ padding-top: 10px;
+ padding-bottom: 30px;
+
+ font-size: 12px;
+ width: 390px;
+ flex-grow: 1;
+
   
 }
 
-.container {
-  display: flex;
+.details h2 {
+  font-size: 25px;
+  color: white;
+  margin: 10px auto;
 }
+
+.details h3 {
+  font-size: 16px;
+  margin: 10px auto;
+}
+
+.details p {
+  margin: 10px auto;
+}
+

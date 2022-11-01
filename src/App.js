@@ -16,14 +16,14 @@ function App() {
       setData(results);
       console.log(results);
     })
-
+    console.log("executed");
   }, []);
   return (
       <>
         <div className="box">
         {data && data.map(({id, name, status, image, species, gender, location, episode}) => (
             <div className="card" key={id}>
-              <div className="container">
+              
 
                 <div className="image">
                   <img  className="charImg" src={image} />
@@ -33,13 +33,11 @@ function App() {
                   <h2>#{id} {name}</h2>
                   <h3>{status}-{species}-{gender}</h3>
                   <p>Last known location:</p>
-                  <strong>{location.name}</strong>
+                  <p><strong>{location.name}</strong></p>
                   <p>First seen in:</p>
                   <p>{episode[0]}</p>
 
                 </div>
-
-              </div>
 
             </div>
 
