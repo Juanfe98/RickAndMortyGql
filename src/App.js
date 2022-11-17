@@ -30,12 +30,17 @@ function App() {
                 </div>
 
                 <div className="details">
-                  <h2>#{id} {name}</h2>
-                  <h3>{status}-{species}-{gender}</h3>
-                  <p>Last known location:</p>
-                  <p><strong>{location.name}</strong></p>
-                  <p>First seen in:</p>
-                  <p>{episode[0]}</p>
+
+                    <h3> <span className="customColorId"> #{id} </span>{name}</h3>
+                    <h4>{status} - {species} - {gender}</h4>
+                  
+                    
+
+                      <p>Last known location:</p>
+                      <span className="customLocation"><p>{location.name}</p></span>
+                      <p>First seen in:</p>
+                      <span className="customColorEpisode"><p>{episode[0]}</p></span>
+                   
 
                 </div>
 

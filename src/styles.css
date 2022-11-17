@@ -6,7 +6,8 @@
 
 .box{
   justify-content: center;
-  background-color: rgb(46, 45, 45);
+  /* background-color: rgb(46, 45, 45); */
+  background-color: #24282F;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -15,7 +16,8 @@
 }
 
 .card{
-  background-color: rgb(75, 72, 72);
+  /* background-color: rgb(75, 72, 72); */
+  background-color: #3C3E44;
   border-radius: 10px;
   margin: 10px;
   display: flex;
@@ -40,19 +42,41 @@
 .details {
  flex-direction: column;
  color: white;
- padding-left: 20px;
- padding-right: 20px;
+ padding-left: 15px;
+ padding-right: 15px;
  padding-top: 10px;
  padding-bottom: 30px;
-
- font-size: 12px;
+ overflow-wrap: break-word;
  width: 390px;
  flex-grow: 1;
 
   
 }
 
-.details h2 {
+.customColorId {
+  color: rgb(170, 170, 170);
+}
+
+.customColorEpisode {
+  color: #60a6af;
+}
+
+.customLocation {
+  font-weight: bold;
+}
+
+.details h3, h4, p {
+  margin-bottom: 10px;
+}
+
+.details p{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.2rem;
+}
+
+
+
+/* .details h2 {
   font-size: 25px;
   color: white;
   margin: 10px auto;
@@ -65,5 +89,5 @@
 
 .details p {
   margin: 10px auto;
-}
+} */
 
