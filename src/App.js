@@ -26,7 +26,6 @@ function App() {
     })
     console.log("executed");
   }, []);
-  console.log(spinner+"spinner");
 
   if (spinner) {
     return (<Spinner />);

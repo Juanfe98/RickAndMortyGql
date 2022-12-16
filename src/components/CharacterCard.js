@@ -1,11 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { Modal } from './Modal';
 
 export function CharacterCard(props) {
   const {id, image, name, status, species, gender, location, episode} = props.data;
-  return (
-    <div className="card" key={id}>
-              
 
+  const [show, setShow] = useState(false);
+
+  return (
+    <div className="card" key={id} onClick={() => setShow(true)}>
+
+    <Modal onClose={() => setShow(false)} show={show} episodes={episode} name={name} />
+    
     <div className="image">
       <img  className="charImg" src={image} />
     </div>
