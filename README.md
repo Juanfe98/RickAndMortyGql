@@ -1,70 +1,115 @@
-# Getting Started with Create React App
+# Personal Notes
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Promises
 
-## Available Scripts
+A Promise is just an object that is telling us that the code have not finish the execution.
+Promises are used always when you are executing asynchronous code. Meaning that when you are not 
+sure how log is gonna take something to finish, or even the response of that. 
 
-In the project directory, you can run:
+Are used when you are making a request to the server.
 
-### `npm start`
+Please, go deep on promises, being honest this is a complex concept!
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Explaning the episodes fetching information
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Here we would see step by step of the process.
 
-### `npm test`
+### Let's dig into the the `fetch` object.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[More info on this here](https://developer.mozilla.org/es/docs/Web/API/Fetch_API/Using_Fetch)
 
-### `npm run build`
+Keep in mind that fetch return promises! that need to be resolved. There are more than on way to resolve a promise
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+In each `then` you are resolving a promise. In the first one the first one you are returning response.json() which will capture the body of the response and transform it into a JSON object readable easily by us.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+In the second one you resolve the last promise and after that you can access your data! :D
 
-### `npm run eject`
+Keep in mind that there are PROMISES, It's all about PROMISES HERE.
+```javascript
+fetch(`https://rickandmortyapi.com/api/character`)
+  .then ( (response) => response.json())
+  .then ( ({results}) => {
+    setData(results);
+  })
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```	
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This is only one way of resolving promises. You also can use async -> await to resolve promises without using `then`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Let's see the Promise.all() method
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+[More info on this here](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)
 
-## Learn More
+Now that we have clear the `fetch` and `then`. Let's see the `Promise.all()`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+So this is basically something that will help us resolve or reject multiple promises. ( An array of promises ).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The promise.all() returns... guess what? Yep! A new promise!
 
-### Code Splitting
+So...
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Recieve as argument a list of promises. (an array)
 
-### Analyzing the Bundle Size
+Returns a new promise with the array of promises resolved or rejected.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Let's see the code!
 
-### Making a Progressive Web App
+```javascript
+  const loadCharacterEpisodes = () => {
+    const listOfPromises = espisodes.map(episode => {
+      return fetch(episode).then(response => response.json());
+    });
+    Promise.all(listOfPromises).then((results) => {
+      // This is a set state with the results
+      setCharacterEpisodes(results);
+      setShow(true);
+    });
+  };
+```
+So... 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```javascript
+  const listOfPromises = espisodes.map(episode => {
+    return fetch(episode).then(response => response.json());
+  });
+```
 
-### Advanced Configuration
+This const will get a value like this [Promise1, Promise2, Promise3,...]
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Remember the map will always return a ... ? Yep! a new ARRAY with the value you are returning inside the map. In this case we are turning a promise! so the map will return an array of promises.
 
-### Deployment
+```javascript
+ Promise.all(listOfPromises).then((results) => {
+      // This is a set state with the results
+      setCharacterEpisodes(results);
+      setShow(true);
+    });
+```
+The interesting part! The Promise.all()
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+So according to what we've learned let's read this line by line.
 
-### `npm run build` fails to minify
+1. We are passing the list of promises as an argument. and the promise.all will return a promise!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+so we are using the .then function to resolve that promise. Inside it we are setting the value to a state and finish! that's it!
+
+This is a really complex thing. Don't feel overwelmed. Take it easy!
+
+It's all about time!
+
+I don't want to confuse you with this. And i hope not to. It is the right time to talk abnout this!
+
+The next code will do exactly the same thing that the function `loadCharacterEpisodes` above.
+This is a different way of resolving promises. I'll let it here! Please, read, understand and let me know if you have further questions.
+
+```javascript
+  const loadCharacterEpisodes2 = async () => {
+    const tests = espisodes.map(episode => {
+      return fetch(episode).then(response => response.json());
+    });
+    const results = await Promise.all(tests)
+    setCharacterEpisodes(results);
+    setShow(true);
+  };
+```
